@@ -15,7 +15,9 @@ header_pattern = r'<compressed alg=lzw len=(\d+)>.+<crc=0x([0-9A-Fa-f]+)>'
 requestUri = f"http://{IP}/downloadFile?file=/var/config/psi"
 print(requestUri)
 response = requests.get(requestUri)
-assert response.status_code == 200
+if response.status_code != 200 :
+    print('Unable to access the URI. Use your web browser to login useradmin first')
+    sys.exit(1)
 
 data = response.content
 HEADER_LEN = 60
