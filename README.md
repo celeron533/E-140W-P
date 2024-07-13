@@ -1,2 +1,4 @@
-# e140wp
-A tool for extracting e140wp router admin password
+# E-140W-P
+A tool for extracting E-140W-P Gateway's Telecomadmin account's password.
+
+Requires Python3.2+
