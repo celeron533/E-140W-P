@@ -18,13 +18,13 @@ response = requests.get(requestUri)
 assert response.status_code == 200
 
 data = response.content
-
-header = data[:60]
+HEADER_LEN = 60
+header = data[:HEADER_LEN]
 
 match = re.search(header_pattern, str(header))
 data_len = int(match.group(1))
 print(f'Length:{data_len}')
-compressed_data = data[60:60 + data_len]
+compressed_data = data[HEADER_LEN : HEADER_LEN+data_len]
 xml=""
 try:
     # the file has multiple "pages" so we need to use the "PagingDecoder" here
